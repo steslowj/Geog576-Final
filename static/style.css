@@ -1,0 +1,232 @@
+:root {
+  --primary-color: #7a43b6; 
+  --secondary-color: #acbcc9; 
+  --background-color: #fff; 
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Open Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+#app-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--secondary-color);
+  padding: 2px 5px;
+  border-bottom: 2px solid #ccc;
+}
+
+#page-container {
+  flex-grow: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+#map {
+  flex-grow: 1;
+  margin: 10px;
+}
+
+#side-container {
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(30deg, #fff, aliceblue);
+  overflow: hidden;
+}
+
+#pac-card {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  max-width: 350px;
+  min-width: 280px;
+  background-color: #fff;
+  border-radius: 4px;
+  border: 2px solid #ccc;
+  padding: 5px;
+  margin-bottom: 10px; 
+}
+
+#pac-title {
+  margin-bottom: 10px;
+  text-align: center;
+  background-color: var(--secondary-color); 
+  padding: 5px;
+  border-radius: 2px;
+}
+
+#pac-container {
+  display: flex;
+  justify-content: space-between; /* Align items horizontally */
+  align-items: center; /* Align items vertically */
+}
+
+#pac-input {
+  flex-grow: 1; /* Allow input to take available space */
+  margin-right: 10px; /* Space between input and button */
+  padding: 5px 10px; /* Padding inside the input field */
+  border: 1px solid #ccc; /* Border for input field */
+  border-radius: 4px; /* Rounded corners for input field */
+}
+
+.custom-map-control-button {
+  padding: 5px 10px; /* Consistent padding with input field */
+}
+
+/* About Button */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1000; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.modal .modal-content h2 {
+  color: #5a2d8c; 
+  font-weight: bold;
+  font-size: 24px; 
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Styling for buttons */
+.custom-map-control-button, #about-button {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  margin: 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.custom-map-control-button:hover, #about-button:hover {
+  background-color: #5a2d8c; 
+}
+
+#about-button h2 {
+  color: #fff !important;
+  margin: 0; 
+}
+  
+/* Typography */
+h2, .panel-title, #pac-title {
+  font-family: 'Open Sans', sans-serif;
+  color: var(--title-color);
+  font-size: 18px;
+  font-weight: 400;
+  padding: 6px 12px;
+}
+
+.panel-title {
+  background-color: var(--secondary-color); 
+  padding: 5px;
+  border-radius: 2px;
+  text-align: center;
+  margin-bottom: 10px;
+  font-family: 'Open Sans', sans-serif;
+  color: var(--title-color);
+  font-size: 18px;
+  font-weight: 400;
+}
+
+/* Style for the place name */
+.panel-row .place {
+  font-family: 'Open Sans', arial, sans-serif;
+  font-size: 0.9em; 
+  font-weight: bold; 
+  margin: 5px 0;
+  padding-left: 18px;
+  padding-right: 18px;
+  word-break: break-word;
+}
+
+/* Style for the distance text */
+.panel-row .distanceText {
+  font-family: 'Open Sans', arial, sans-serif;
+  font-size: 0.8em; 
+  font-weight: normal; 
+  color: rgb(151, 151, 151); 
+  margin: 5px 0;
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+#panel {
+  overflow: auto;
+  transition: all 0.2s ease-out;
+  flex-grow: 1; 
+  max-width: 350px; 
+  min-width: 280px;
+}
+
+/* Panel Row Styles */
+.station-row {
+  border-bottom: 1px solid #e0e0e0; 
+  padding: 2px;
+  margin-bottom: 2px; 
+  background-color: #fff;
+  cursor: pointer;
+
+  &:last-child {
+    border-bottom: none; /* Remove border for the last row */
+  }
+
+  &:hover {
+    background-color: #dadada; 
+  }
+}
+
+#panel {
+  overflow: auto;
+  transition: all 0.2s ease-out;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 600px) {
+  #page-container {
+    flex-direction: column; /* Stack map and side-container vertically on small screens */
+  }
+
+  #map, #side-container {
+    width: 100%; /* Full width for small screens */
+    margin: 0; /* Adjust margin as needed */
+  }
+
+  #panel {
+    max-height: 50vh; /* Adjust for smaller screens */
+  }
+}
